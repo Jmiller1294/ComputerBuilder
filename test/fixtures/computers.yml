@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  operating_system: MyString
+  cpu: MyString
+  ram: MyString
+  gpu: MyString
+  motherboard_type: MyString
+  cooling_type: MyString
+  case_size: MyString
+  user: one
+
+two:
+  operating_system: MyString
+  cpu: MyString
+  ram: MyString
+  gpu: MyString
+  motherboard_type: MyString
+  cooling_type: MyString
+  case_size: MyString
+  user: two
