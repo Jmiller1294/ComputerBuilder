@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def welcome
-    render 'welcome'
   end
   
   
