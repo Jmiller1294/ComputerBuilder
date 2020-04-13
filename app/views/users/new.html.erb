@@ -1,12 +1,15 @@
 <h1>Signup Page</h1>
 
 <body>
-    <p>
-        <%= form_for @user do |f|%>
+<p>
+        <%= form_for(@user) do |f|%>
         <%=f.label :username %>
         <%=f.text_field :username %>
+        <br>
         <%=f.label :password %>
         <%= f.password_field :password%>
+        <br>
+
         <%= f.submit :Signup %>
         <%end%>
     </p>
