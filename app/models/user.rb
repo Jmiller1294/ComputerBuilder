@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-    has_many :computers
     has_many :orders
     has_many :computers, through: :orders
     validates :username, presence: true
