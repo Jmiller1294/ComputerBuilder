@@ -6,6 +6,7 @@ class ComputersController < ApplicationController
     end
 
     def show
+        @computer = Computer.find_by(id: params[:id])
     end
 
     def new
