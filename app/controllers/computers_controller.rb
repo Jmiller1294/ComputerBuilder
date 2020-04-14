@@ -2,7 +2,11 @@ class ComputersController < ApplicationController
     layout"computers"
     
     def index
-        @computer = Computer.all
+        if params[:user_id]
+            @computers = Computer.find(params[:user_id]).computers
+          else
+            @computers = Computer.all
+          end
     end
 
     def show

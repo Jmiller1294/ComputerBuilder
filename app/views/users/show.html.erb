@@ -1,5 +1,5 @@
 <h2><%= @user.username%>'s Homepage</h2>
 
 <p>
-    <h3><%= link_to "Orders", orders_path %></h3>
+    <h3><%= link_to "Orders", user_orders_path(@user) %></h3>
 </p>
