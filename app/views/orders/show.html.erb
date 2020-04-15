@@ -1,3 +1,9 @@
 <h2>Your Order</h2>
 
-<%= @order.id%>
+<p>
+    <ul>
+        <li>Order Number: #<%= @order.id %></li>
+        <li>Shipping Type: <%= @order.shipping_type %></li>
+        <li>Shipping Address: <%= @order.shipping_address %></li>
+    </ul>
+</p>
