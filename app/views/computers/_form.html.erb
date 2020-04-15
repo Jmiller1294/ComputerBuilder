@@ -1,0 +1,25 @@
+
+<%= form_for(@computer) do |f| %>
+
+<%= f.label :operating_system %>
+<%= f.text_field :operating_system %><br>
+
+<%= f.label :cpu %>
+<%= f.text_field :cpu %><br>
+
+<%= f.label :ram %>
+<%= f.text_field :ram %><br>
+
+<%= f.label :gpu %>
+<%= f.text_field :gpu %><br>
+
+<%= f.label :motherboard_type %>
+<%= f.text_field :motherboard_type %><br>
+
+<%= f.label :cooling_type %>
+<%= f.text_field :cooling_type %><br>
+
+<%= f.label :case_size %>
+<%= f.text_field :case_size %><br>
+
+<% end %>

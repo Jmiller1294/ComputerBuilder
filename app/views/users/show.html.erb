@@ -1,5 +1,8 @@
 <h2><%= @user.username%>'s Homepage</h2>
 
 <p>
-    <h3><%= link_to "Orders", user_orders_path(@user) %></h3>
+    <ul>
+        <li><h4><%= link_to "Current Orders", user_orders_path(@user) %></h3></li>
+        <li><h4><%= link_to "Build New Computer", new_user_computer_path(@user) %></h3></li>
+    </ul>
 </p>

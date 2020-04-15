@@ -13,7 +13,7 @@ class ComputersController < ApplicationController
     end
 
     def new
-        
+        @computer = Computer.new
     end
 
     def create
