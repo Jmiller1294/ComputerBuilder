@@ -2,10 +2,16 @@ class ComputersController < ApplicationController
     
     def index
         if params[:user_id]
-            @computers = Computer.find(params[:user_id]).computers
+            @user = User.find_by(id: params[:user_id])
+            if @user.nil?
+              redirect_to '/'
+            else
+              @computers = @user.computers
+            end
           else
             @computers = Computer.all
           end
+        
     end
 
     def show

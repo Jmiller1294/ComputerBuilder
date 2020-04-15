@@ -1,3 +1,12 @@
-<%@orders.each do |order|%>
-<%= link_to order.id, user_computer_path(order.user,order.computer)%>
-<%end%>
+<h2><%= %>'s Orders</h2>
+
+
+
+
+<p>
+    <ol>
+        <%@orders.each do |order|%>
+            <h5><li><%= link_to order.id, user_computer_path(order.user,order.computer)%></li></h5>
+        <%end%>
+    </ol>
+</p>

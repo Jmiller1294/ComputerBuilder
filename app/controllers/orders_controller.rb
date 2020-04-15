@@ -1,6 +1,18 @@
 class OrdersController < ApplicationController
+
+    
     def index
-        @orders = Order.all
+        if params[:user_id]
+            @user = User.find_by(id: params[:user_id])
+            if @user.nil?
+              redirect_to user_path(@user)
+            else
+              @orders = @user.orders
+            end
+          else
+            @orders = Order.all
+          end
+        
     end
 
     def show
