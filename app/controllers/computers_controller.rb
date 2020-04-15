@@ -26,6 +26,7 @@ class ComputersController < ApplicationController
     end
 
     def edit
+        @computer = Computer.find_by(id: params[:id])
     end
 
     def update
