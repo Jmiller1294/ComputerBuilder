@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
 
-  resources :users, only: [:show] do
+  resources :users, only: [:show, :new, :create] do
     # nested resource 
-    resources :computers, only: [:show, :index]
-    resources :orders, only: [:show, :index]
+    resources :computers
+    resources :orders, only: [:show, :index, :new, :create, :edit, :update, :delete]
   end
   resources :orders
   resources :computers

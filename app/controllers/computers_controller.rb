@@ -1,5 +1,4 @@
 class ComputersController < ApplicationController
-    layout"computers"
     
     def index
         if params[:user_id]
@@ -14,6 +13,7 @@ class ComputersController < ApplicationController
     end
 
     def new
+        
     end
 
     def create
