@@ -1,12 +1,12 @@
-<h2><%= %>'s Orders</h2>
+<h2><%= @user.username%>'s Orders</h2>
 
 
 
 
 <p>
-    <ol>
+    <ul>
         <%@orders.each do |order|%>
-            <h5><li><%= link_to order.id, user_computer_path(order.user,order.computer)%></li></h5>
+            <h5><li><%= link_to "Order # #{order.id}", user_computer_path(order.user,order.computer)%></li></h5>
         <%end%>
-    </ol>
+    </ul>
 </p>
