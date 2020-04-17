@@ -3,7 +3,10 @@ class Order < ApplicationRecord
   has_many :computers
   has_many :users, through: :computers
 
-  validates :order_date, presence: true
+
+  validates :card_type, presence: true
+  validates :card_number, presence: true
+  validates :card_number, length: { in: 10..16 }
   validates :shipping_type, presence: true
   validates :shipping_address, presence: true
 end

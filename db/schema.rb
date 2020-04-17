@@ -10,6 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_04_12_063234) do
 
+  create_table "computers", force: :cascade do |t|
+    t.string "operating_system"
+    t.string "cpu"
+    t.string "ram"
+    t.string "gpu"
+    t.string "motherboard_type"
+    t.string "cooling_type"
+    t.string "case_size"
+    t.integer "user_id"
+    t.integer "order_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_computers_on_order_id"
+    t.index ["user_id"], name: "index_computers_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "shipping_type"
+    t.text "shipping_address"
+    t.string "card_type"
+    t.string "card_number"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "computers", "orders"
+  add_foreign_key "computers", "users"
+  add_foreign_key "orders", "users"
 end
