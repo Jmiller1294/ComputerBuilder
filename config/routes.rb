@@ -8,11 +8,16 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
 
-  resources :users, only: [:show, :new, :create] do
+  resources :users do
     # nested resource 
     resources :computers
-    resources :orders, only: [:show, :index, :new, :create, :edit, :update, :delete]
   end
+
+  resources :computers do 
+    resources :orders
+  end
+
+
   resources :orders
   resources :computers
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

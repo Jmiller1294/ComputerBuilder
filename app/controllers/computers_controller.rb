@@ -9,10 +9,7 @@ class ComputersController < ApplicationController
             else
               @computers = @user.computers
             end
-          else
-            @computers = Computer.all
           end
-        
     end
 
     def show
@@ -24,12 +21,7 @@ class ComputersController < ApplicationController
     end
 
     def create
-      @computer = current_user.computers.build(computer_params)
-      if @computer.save
-        redirect_to user_computer_path(current_user, @computer)
-      else
-        render "new"
-      end
+      
     end
 
     def edit

@@ -1,3 +1,16 @@
 <h2>Create A New Order</h2>
 
-<%= render 'form' %>
+
+<%= form_for(@order) do |f| %>
+
+<%= f.label :shipping_type%>
+<%= f.text_field :shipping_type%><br>
+
+<%= f.label :shipping_address %>
+<%= f.text_field :shipping_address%><br>
+
+<%f.hidden_field :computer_id%>
+
+<%= f.submit %>
+
+<% end %>

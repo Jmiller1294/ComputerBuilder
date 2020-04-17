@@ -1,7 +1,7 @@
 class Computer < ApplicationRecord
   belongs_to :user
-  has_many :orders
-  has_many :users, through: :orders
+  belongs_to :order
+  
   validates :operating_system, presence: true
   validates :cpu, presence: true
   validates :gpu, presence: true

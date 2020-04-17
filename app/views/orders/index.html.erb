@@ -5,8 +5,8 @@
 
 <p>
     <ul>
-        <%@orders.each do |order|%>
-            <h5><li><%= link_to "Order # #{order.id}", user_computer_path(order.user,order.computer)%></li></h5>
+        <%current_user.orders.each do |order|%>
+            <h5><li><%= link_to "Order # #{order.id}", user_computer_path(order.current_user,order.computer)%></li></h5>
         <%end%>
     </ul>
 </p>
