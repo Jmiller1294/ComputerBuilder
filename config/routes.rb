@@ -10,11 +10,11 @@ Rails.application.routes.draw do
 
   resources :users do
     # nested resource 
-    resources :computers
+    resources :orders
   end
 
-  resources :computers do 
-    resources :orders
+  resources :orders do 
+    resources :computers
   end
 
 

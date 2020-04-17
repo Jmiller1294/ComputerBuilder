@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :redirect_if_not_logged_in
     
     def index
-        
+        @orders = Order.all
     end
 
     def show
@@ -10,11 +10,18 @@ class OrdersController < ApplicationController
     end
 
     def new
-     
+     @order = Order.new
     end
 
     def create
-      
+        @order = current_user.orders.build(order_params)
+        binding.pry
+        if @order.save 
+            
+            redirect_to orders_path
+        else
+            render 'new'
+        end
     end
 
     def edit
@@ -30,6 +37,6 @@ class OrdersController < ApplicationController
     private
 
     def order_params
-        params.require(:order).permit(:order_date, :shipping_type, :shipping_address)
+        params.require(:order).permit(:shipping_type, :shipping_address, :card_type, :card_number)
     end
 end
