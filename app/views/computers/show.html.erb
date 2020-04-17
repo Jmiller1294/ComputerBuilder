@@ -7,5 +7,7 @@
     <li>GPU: <%= @computer.gpu %></li>
     <li>Motherboard: <%= @computer.motherboard_type %></li>
     <li>Cooling System: <%= @computer.cooling_type %></li>
-    <li>Case Size: <%= @computer.case_size %></li>
+    <li>Case Size: <%= @computer.case_size %></li><br>
+
+    <%= link_to "Place Order", new_order_path%>
 </ul>
