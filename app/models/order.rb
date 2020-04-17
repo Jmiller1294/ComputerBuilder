@@ -6,7 +6,7 @@ class Order < ApplicationRecord
 
   validates :card_type, presence: true
   validates :card_number, presence: true
-  validates :card_number, length: { in: 10..16 }
+  validates :card_number, length: { in: 6..16 }
   validates :shipping_type, presence: true
   validates :shipping_address, presence: true
 end

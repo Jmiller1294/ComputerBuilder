@@ -6,7 +6,7 @@
 <p>
     <ul>
         <%@orders.each do |order|%>
-            <h5><li><%= link_to "Order # #{order.id}", user_orders_path(order.users)%></li></h5>
+            <h5><li><%= link_to "Order # #{order.id}", user_order_path(order.users, order)%></li></h5>
         <%end%>
     </ul>
 </p><br>

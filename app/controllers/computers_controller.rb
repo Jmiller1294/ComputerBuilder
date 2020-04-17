@@ -21,7 +21,12 @@ class ComputersController < ApplicationController
     end
 
     def create
-      
+        @computer = current_user.computers.build(computer_params)
+        if @computer.save 
+            redirect_to computers_path
+        else
+            render 'new'
+        end
     end
 
     def edit

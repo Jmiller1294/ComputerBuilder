@@ -9,9 +9,9 @@
 justin = User.create(username: "jayman1294", password: "password")
 milly  = User.create(username: "milly", password: "password2")
 
-order1 =  Order.create(order_date: DateTime.new(2020, 03, 15, 18, 00, 0), shipping_type: "Express", shipping_address: "2100 1st Ave",card_type: "Visa", card_number: "112344567767" user: justin)
-order2 =  Order.create(order_date: DateTime.new(2020, 03, 15, 18, 00, 0), shipping_type: "Standard", shipping_address: "2100 1st Ave", user: justin)
-order3 =  Order.create(order_date: DateTime.new(2020, 03, 15, 18, 00, 0), shipping_type: "Express", shipping_address: "2200 2nd Ave", user: milly)
+order1 =  Order.create(shipping_type: "Express", shipping_address: "2100 1st Ave", card_type: "Visa", card_number: "112344567767", user: justin)
+order2 =  Order.create(shipping_type: "Standard", shipping_address: "2100 1st Ave", card_type: "Mastercard", card_number: "537584375834", user: justin)
+order3 =  Order.create(shipping_type: "Express", shipping_address: "2200 2nd Ave", card_type: "Visa", card_number: "93249384923", user: milly)
 
 
 computer1 = Computer.create(operating_system: "Windows 10", 

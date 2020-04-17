@@ -15,9 +15,7 @@ class OrdersController < ApplicationController
 
     def create
         @order = current_user.orders.build(order_params)
-        binding.pry
         if @order.save 
-            
             redirect_to orders_path
         else
             render 'new'
