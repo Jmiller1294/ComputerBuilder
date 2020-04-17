@@ -2,7 +2,15 @@ class OrdersController < ApplicationController
   before_action :redirect_if_not_logged_in
     
     def index
-        @orders = Order.all
+        if params[:user_id]
+            @user = User.find_by(id: params[:user_id])
+            @orders = @user.orders
+        if @orders.nil?
+            redirect_to root_path
+        else
+            @orders = @user.orders
+        end
+      end
     end
 
     def show
@@ -16,7 +24,7 @@ class OrdersController < ApplicationController
     def create
         @order = current_user.orders.build(order_params)
         if @order.save 
-            redirect_to orders_path
+            redirect_to user_path(@order.user)
         else
             render 'new'
         end
