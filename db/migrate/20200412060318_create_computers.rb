@@ -8,7 +8,7 @@ class CreateComputers < ActiveRecord::Migration[6.0]
       t.string :motherboard_type
       t.string :cooling_type
       t.string :case_size
-      t.belongs_to :user, null: false, foreign_key: true
+      t.belongs_to :user, foreign_key: true
 
       t.timestamps
     end

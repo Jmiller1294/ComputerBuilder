@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_04_12_063234) do
     t.string "motherboard_type"
     t.string "cooling_type"
     t.string "case_size"
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_computers_on_user_id"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 2020_04_12_063234) do
     t.datetime "order_date"
     t.string "shipping_type"
     t.text "shipping_address"
-    t.integer "user_id", null: false
-    t.integer "computer_id", null: false
+    t.integer "user_id"
+    t.integer "computer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["computer_id"], name: "index_orders_on_computer_id"
