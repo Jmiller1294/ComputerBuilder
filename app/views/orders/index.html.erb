@@ -8,8 +8,8 @@
         <%@number = 0 %>
         <% @orders.each do |order|%>
             <%@number += 1 %>
-            <h5><li><%= link_to "Order # #{@number}", user_order_path(order.users, order)%></li></h5>
+            <h5><li><%= link_to "Order # #{@number}", order_path(order)%></li></h5>
         <%end%>
     </ul>
 </p><br>
-<%= link_to "Create An Order", new_user_order_path(current_user) %>
+<%= link_to "Create An Order", new_order_path %>

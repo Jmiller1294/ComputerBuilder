@@ -18,6 +18,7 @@ computer1 = Computer.create(operating_system: "Windows 10",
     cpu: "intel i7", ram: "16", gpu: "nvidia", 
     motherboard_type: "ATX", cooling_type: "Liquid", 
     case_size: "Full Tower", user: justin, order: order1)
+
 computer2 = Computer.create(operating_system: "Windows 8", 
         cpu: "intel i5", ram: "16", gpu: "AMD", 
         motherboard_type: "ATX-mini", cooling_type: "Fan", 
@@ -25,5 +26,9 @@ computer2 = Computer.create(operating_system: "Windows 8",
 computer3 = Computer.create(operating_system: "Windows 7", 
             cpu: "intel i3", ram: "8", gpu: "AMD", 
             motherboard_type: "ATX-mini", cooling_type: "liquid", 
-            case_size: "Mini-Tower", user: milly, order: order3)      
+            case_size: "Mini-Tower", user: milly, order: order3)    
+computer4 = Computer.create(operating_system: "Windows 11", 
+                cpu: "intel i9", ram: "32", gpu: "nvidia 1090", 
+                motherboard_type: "ATX", cooling_type: "Liquid", 
+                case_size: "Full Tower", user: justin, order: order1)
 

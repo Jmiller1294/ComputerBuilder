@@ -18,13 +18,17 @@ class ComputersController < ApplicationController
     end
 
     def new
-        @computer = Computer.new
+        if params[:order_id] && @order = Order.find_by_id(params[:order_id])
+            @computer = @order.computers.build
+        else
+            @computer = Computer.new
+        end
     end
 
     def create
         @computer = current_user.computers.build(computer_params)
         if @computer.save 
-            redirect_to computers_path
+            redirect_to computer_path(@computer)
         else
             render 'new'
         end
@@ -43,6 +47,6 @@ class ComputersController < ApplicationController
     private
 
     def computer_params
-        params.require(:computer).permit(:operating_system, :cpu, :ram, :gpu, :motherboard_type, :cooling_type, :case_size)
+        params.require(:computer).permit(:operating_system, :cpu, :ram, :gpu, :motherboard_type, :cooling_type, :case_size, :order_id)
     end
 end
