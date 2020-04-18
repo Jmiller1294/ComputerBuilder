@@ -8,13 +8,13 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :computers
-  resources :users do
+  resources :users, only: [:new, :create, :show] do
     # nested resource 
-    resources :orders
+    resources :orders, only: [:index, :new, :show]
   end
 
   resources :orders do 
-    resources :computers
+    resources :computers, only: [:index, :new, :show]
   end
 
   

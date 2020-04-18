@@ -10,4 +10,7 @@
     <li>Case Size: <%= @computer.case_size %></li><br>
 
     Ordered on <%= @computer.created_at.to_date %>
+
+   
 </ul>
+ <%= link_to "Edit Computer", edit_computer_path(@computer)%>

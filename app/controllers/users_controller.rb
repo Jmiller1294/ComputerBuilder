@@ -5,10 +5,11 @@ class UsersController < ApplicationController
     end
 
     def show
-        redirect_if_not_logged_in
+        if !redirect_if_not_logged_in
         @user = User.find_by_id(params[:id])
         @last_order = @user.orders.last_order
-        redirect_to root_path if  !@user
+        redirect_to root_path if @user != current_user
+        end
     end
 
     def new
