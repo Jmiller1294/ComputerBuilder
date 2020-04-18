@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     def show
         redirect_if_not_logged_in
         @user = User.find_by_id(params[:id])
+        @last_order = @user.orders.last_order
         redirect_to root_path if  !@user
     end
 

@@ -2,7 +2,16 @@
 
 <p>
     <ul>
-        <li><h4><%= link_to "Current Orders", user_orders_path(@user) %></h3></li>
-        <li><h4><%=  %></h3></li>
+        <li><h4><%= link_to "All Current Orders", user_orders_path(@user) %></h3></li>
+    </ul>
+</p>
+
+<p>
+    <h4> Last Order Details </h4>
+    <ul>
+        <li>Shipping Type: <%= @last_order.shipping_type %></li>
+        <li>Shipping Address: <%= @last_order.shipping_address %></li>
+        <li>Card Type: <%= @last_order.card_type %></li>
+        <li>Card Number: <%= @last_order.card_number %></li>
     </ul>
 </p>

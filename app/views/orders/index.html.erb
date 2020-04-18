@@ -1,5 +1,5 @@
 <h2><%= current_user.username.capitalize%>'s Orders</h2>
-
+<%= link_to "Create New Order", new_order_path %><br>
 
 
 
@@ -9,7 +9,7 @@
         <% @orders.each do |order|%>
             <%@number += 1 %>
             <h5><li><%= link_to "Order # #{@number}", order_path(order)%></li></h5>
+            Ordered on <%= order.created_at.to_date %>
         <%end%>
     </ul>
 </p><br>
-<%= link_to "Create An Order", new_order_path %>
