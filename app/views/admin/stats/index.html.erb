@@ -1,0 +1,20 @@
+<h2>All Users Orders</h2>
+
+
+<p>
+    <ul>
+        <%@number = 0 %>
+        <% @orders.each do |order|%>
+          <p>
+    <ul>
+        <li>Order Username: <%= order.user.username %></li>
+        <li>Order Number: #<%= order.id %></li>
+        <li>Shipping Type: <%= order.shipping_type %></li>
+        <li>Shipping Address: <%= order.shipping_address %></li>
+        <li>Card Type: <%= order.card_type %></li>
+        <li>Card Number: <%= order.card_number %></li>
+    </ul>
+</p>
+        <%end%>
+    </ul>
+</p><br>

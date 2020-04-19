@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   resources :orders
   resources :computers
 
+  namespace :admin do
+    resources :stats, only: [:index]
+  end
+
 
   get '/auth/:provider/callback' => 'sessions#omniauth'
 
