@@ -17,7 +17,8 @@ class ComputersController < ApplicationController
     end
 
     def new
-        if params[:order_id] && find_order
+        if params[:order_id] && @order = Order.find_by(id: params[:order_id])
+            
             @computer = @order.computers.build
         else
             @computer = Computer.new

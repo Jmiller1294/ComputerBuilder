@@ -2,7 +2,7 @@
 
 <%= render partial: "layouts/errors", locals: {object: @user}%>
 
-<body>
+<body class="center">
 <p>
         <%= form_for(@user, url: "/signup") do |f|%>
         <%=f.label :username %>
