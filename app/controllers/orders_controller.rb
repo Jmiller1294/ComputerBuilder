@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
     def create
         @order = current_user.orders.build(order_params)
         if @order.save 
-            redirect_to user_path(@order.user)
+            redirect_to order_path(@order)
         else
             render 'new'
         end

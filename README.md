@@ -1,27 +1,53 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Project Title
+ComputerBuilder - A rails app used to signup and login a user that allows a user to create orders and add computers to those orders.
 
-Things you may want to cover:
+Getting Started
 
-* Ruby version
 
-* System dependencies
+Prerequisites
+Github
+Ruby 2.6.1
+Rails 6.0.2.2
 
-* Configuration
 
-* Database creation
+Installing
+1. Check out the repository
 
-* Database initialization
+git@github.com:Jmiller1294/ComputerBuilder.git
 
-* How to run the test suite
+2. Install Gems
 
-* Services (job queues, cache servers, search engines, etc.)
+bundle install
 
-* Deployment instructions
+3. migrate the database
 
-* ...
+rake db:migrate
+
+4. Start the Rails server
+
+You can start the rails server using the command given below:
+rails s
+And now you can visit the site with the URL http://localhost:3000
+
+
+Built With
+Rails - The web framework used
+
+Contributing
+Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+
+Versioning
+For the versions available, see the tags on this repository.
+
+Authors
+Justin Miller - Initial work - Jmiller1294
+See also the list of contributors who participated in this project.
+
+License
+This project is licensed under the MIT License - see the LICENSE.md file for details
+
 
 
 # Specifications for the Rails Assessment
@@ -44,7 +70,7 @@ Specs:
 - [x] Include form display of validation errors (form URL e.g. /recipes/new)
 
 Confirm:
-- [ ] The application is pretty DRY
+- [x] The application is pretty DRY
 - [x] Limited logic in controllers
-- [] Views use helper methods if appropriate
+- [x] Views use helper methods if appropriate
 - [x] Views use partials if appropriate
