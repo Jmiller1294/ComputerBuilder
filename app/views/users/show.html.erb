@@ -8,10 +8,14 @@
 
 <p>
     <h4> Last Order Details </h4>
+    <% if @last_order.present? %>
     <ul>
         <li>Shipping Type: <%= @last_order.shipping_type %></li>
         <li>Shipping Address: <%= @last_order.shipping_address %></li>
         <li>Card Type: <%= @last_order.card_type %></li>
         <li>Card Number: <%= @last_order.card_number %></li>
     </ul>
+    <%else%>
+    No Recent Orders
+    <%end%>
 </p>
