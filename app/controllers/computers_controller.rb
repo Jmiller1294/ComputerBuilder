@@ -2,20 +2,18 @@ class ComputersController < ApplicationController
    before_action :redirect_if_not_logged_in
 
     def index
-      if params[:order_id] && current_user
-            @order = Order.find_by(id: params[:order_id])
+      if params[:order_id] && @order = Order.find_by(id: params[:order_id])
             @computers = @order.computers
-        if @computers.nil?
+        elsif @computers.nil?
             redirect_to root_path
         else
-            @computers = @order.computers
+            redirect_to root_path
         end
-      end
     end
 
     def show
-        
         @computer = Computer.find_by(id: params[:id])
+        redirect_to computers_path if !@computer
     end
 
     def new

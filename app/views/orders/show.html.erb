@@ -16,7 +16,7 @@
     <%@order.computers.each do |computer|%>
     <ul>
         <%@number += 1 %>
-            <h5><li><%= link_to "Computer # #{@number}", order_computer_path(computer.order, computer)%></li></h5>
+            <h5><li><%= link_to "Computer # #{@number}", computer_path(computer)%></li></h5>
     </ul>
     <% end %>
 </p>

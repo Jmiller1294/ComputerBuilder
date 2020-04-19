@@ -1,5 +1,17 @@
 <h1>Signup Page</h1>
 
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h4><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h4>
+ 
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <body>
 <p>
         <%= form_for(@user, url: "/signup") do |f|%>
