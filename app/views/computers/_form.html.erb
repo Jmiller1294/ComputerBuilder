@@ -1,15 +1,4 @@
-<% if @computer.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@computer.errors.count, "error") %> prohibited this computer from being saved:</h2>
- 
-    <ul>
-    <% @computer.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
+<%= render partial: "layouts/errors", locals {object: @computer}%>
 
 <%= form_for(@computer) do |f| %>
 

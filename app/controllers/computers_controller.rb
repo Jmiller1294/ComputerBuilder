@@ -2,7 +2,7 @@ class ComputersController < ApplicationController
    before_action :redirect_if_not_logged_in
 
     def index
-      if params[:order_id] && @order = Order.find_by(id: params[:order_id])
+      if params[:order_id] && find_order
             @computers = @order.computers
         elsif @computers.nil?
             redirect_to root_path
@@ -17,7 +17,7 @@ class ComputersController < ApplicationController
     end
 
     def new
-        if params[:order_id] && @order = Order.find_by_id(params[:order_id])
+        if params[:order_id] && find_order
             @computer = @order.computers.build
         else
             @computer = Computer.new
@@ -39,10 +39,14 @@ class ComputersController < ApplicationController
     end
 
     def update
+        find_order
+        if @order.update(order_params)
+            redirect_to order_path(@order)
+        else
+            render "edit"
+        end
     end
 
-    def destroy
-    end
 
     private
 

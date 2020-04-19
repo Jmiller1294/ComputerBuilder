@@ -9,8 +9,8 @@
         <% @orders.each do |order|%>
             <%@number += 1 %>
             <h5><li><%= link_to "Order # #{@number}", order_path(order)%></li></h5>
-            Ordered on <%= order.created_at.to_date %>
-            <%= link_to "Edit Order", edit_order_path(order)%>
+            Ordered on <%= order.created_at.strftime("%m/%d/%Y") %><br> 
+            <%= link_to "Edit Order", edit_order_path(order)%> - <%= link_to "Cancel Order", order_path(order.user, order), method: :delete, data: {confirm: "You sure?"} %>
         <%end%>
     </ul>
 </p><br>

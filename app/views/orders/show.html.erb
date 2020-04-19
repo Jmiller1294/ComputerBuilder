@@ -16,10 +16,12 @@
     <%@order.computers.each do |computer|%>
     <ul>
         <%@number += 1 %>
-            <h5><li><%= link_to "Computer # #{@number}", computer_path(computer)%></li></h5>
+            <li><h5><%= "Computer # #{@number}"%></h5>
+            Built on <%= computer.created_at.strftime("%m/%d/%Y") %><br>
+            <%= link_to "More Info", computer_path(computer)%></li>
     </ul>
     <% end %>
 </p>
 <p>
-    <%= link_to "Create New Build", new_order_computer_path(@order)%>
+    <%= link_to "Add New Build", new_order_computer_path(@order)%>
 </p>

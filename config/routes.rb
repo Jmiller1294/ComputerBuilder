@@ -16,8 +16,10 @@ Rails.application.routes.draw do
   resources :orders do 
     resources :computers, only: [:index, :new, :create]
   end
+  resources :orders
   resources :computers
-  
+
+
   get '/auth/:provider/callback' => 'sessions#omniauth'
 
 

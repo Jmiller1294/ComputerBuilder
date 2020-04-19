@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
     end
 
     def show
-        @order = Order.find_by(id: params[:id]) 
+        find_order
         redirect_to computers_path if !@order
     end
 
@@ -34,14 +34,23 @@ class OrdersController < ApplicationController
     end
 
     def edit
-        @order = Order.find_by(id: params[:id])
+        find_order
         redirect_to user_path(current_user) if !@order || @order.user != current_user
     end
 
     def update
+        find_order
+        if @order.update(order_params)
+            redirect_to order_path(@order)
+        else
+            render "edit"
+        end
     end
 
     def destroy
+        find_order
+        @order.destroy
+        redirect_to orders_path
     end
 
     private

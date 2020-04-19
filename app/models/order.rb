@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   
   belongs_to :user
-  has_many :computers
+  has_many :computers, dependent: :delete_all
   has_many :users, through: :computers
 
 

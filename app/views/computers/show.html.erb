@@ -1,13 +1,13 @@
 <h2>Computer Build</h2>
 
 <ul>
-    <li>Operating System: <%= @computer.operating_system %></li>
-    <li>Cpu: <%= @computer.cpu %></li>
-    <li>RAM: <%= @computer.ram %></li>
-    <li>GPU: <%= @computer.gpu %></li>
-    <li>Motherboard: <%= @computer.motherboard_type %></li>
-    <li>Cooling System: <%= @computer.cooling_type %></li>
-    <li>Case Size: <%= @computer.case_size %></li><br>
+    <li><h6><b>Operating System: </b><%= @computer.operating_system %></h6></li>
+    <li><h6><b>Cpu: </b><%= @computer.cpu %></h6></li>
+    <li><h6><b>RAM: </b><%= @computer.ram %></h6></li>
+    <li><h6><b>GPU: </b><%= @computer.gpu %></h6></li>
+    <li><h6><b>Motherboard: </b><%= @computer.motherboard_type %></h6></li>
+    <li><h6><b>Cooling System: </b><%= @computer.cooling_type %></h6></li>
+    <li><h6><b>Case Size: </b><%= @computer.case_size %></li></h6><br>
 
     Ordered on <%= @computer.created_at.to_date %>
 
