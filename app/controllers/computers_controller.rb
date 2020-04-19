@@ -12,13 +12,12 @@ class ComputersController < ApplicationController
     end
 
     def show
-        @computer = Computer.find_by(id: params[:id])
+        find_computer
         redirect_if_not_user_computer
     end
 
     def new
         if params[:order_id] && @order = Order.find_by(id: params[:order_id])
-            
             @computer = @order.computers.build
         else
             @computer = Computer.new
@@ -35,14 +34,14 @@ class ComputersController < ApplicationController
     end
 
     def edit
-        @computer = Computer.find_by(id: params[:id])
+        find_computer
         redirect_if_not_user_computer
     end
 
     def update
-        find_order
-        if @order.update(order_params)
-            redirect_to order_path(@order)
+        find_computer
+        if @computer.update(computer_params)
+            redirect_to computer_path(@computer)
         else
             render "edit"
         end
@@ -56,6 +55,10 @@ class ComputersController < ApplicationController
             flash[:message] = 'Computer Not Found' 
             redirect_to user_path(current_user)
         end
+    end
+
+    def find_computer
+        @computer = Computer.find_by(id: params[:id])
     end
 
     def computer_params
