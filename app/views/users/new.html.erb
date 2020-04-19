@@ -1,16 +1,6 @@
-<h1>Signup Page</h1>
+<h1 > Signup Page </h1>
 
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h4><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h4>
- 
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render partial: "layouts/errors", locals: {object: @user}%>
 
 <body>
 <p>
@@ -18,9 +8,11 @@
         <%=f.label :username %>
         <%=f.text_field :username %>
         <br>
-        <%=f.label :password %>
-        <%= f.password_field :password%>
+        <%=f.label :email %>
+        <%= f.email_field :email%>
         <br>
+        <%=f.label :password %>
+        <%= f.password_field :password%><br>
 
         <%= f.submit :Signup %>
         <%end%>
