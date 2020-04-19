@@ -1,5 +1,7 @@
 <h2><%= @user.username.capitalize%>'s Homepage</h2>
 
+<%= flash[:message] if flash[:message]%>
+
 <p>
     <ul>
         <li><h4><%= link_to "All Current Orders", user_orders_path(@user) %></h3></li>

@@ -56,7 +56,10 @@ class OrdersController < ApplicationController
     private
 
     def redirect_if_not_user_order
-        redirect_to user_path(current_user) if !@order || @order.user != current_user
+        if !@order || @order.user != current_user
+            redirect_to user_path(current_user) 
+            flash[:message] = 'Order Not Found' 
+        end
     end
 
     def order_params

@@ -51,7 +51,10 @@ class ComputersController < ApplicationController
     private
 
     def redirect_if_not_user_computer
-        redirect_to user_path(current_user) if !@computer || @computer.user != current_user 
+        if !@computer || @computer.user != current_user 
+            flash[:message] = 'Computer Not Found' 
+            redirect_to user_path(current_user)
+        end
     end
 
     def computer_params
