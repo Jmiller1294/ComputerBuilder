@@ -2,22 +2,22 @@ class OrdersController < ApplicationController
   before_action :redirect_if_not_logged_in
     
     def index
-    if params[:user_id] && @user = User.find_by(id: params[:user_id])
-        if current_user == @user
-            @orders = current_user.orders
-        elsif @orders.nil?
-            redirect_to root_path
+        if params[:user_id] && @user = User.find_by(id: params[:user_id])
+            if current_user == @user
+                @orders = current_user.orders
+            elsif @orders.nil?
+                redirect_to root_path
+            else
+                redirect_to root_path
+            end
         else
             redirect_to root_path
         end
-    else
-        redirect_to root_path
-    end
     end
 
     def show
         find_order
-        redirect_to computers_path if !@order
+        redirect_if_not_user_order
     end
 
     def new
@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
 
     def edit
         find_order
-        redirect_to user_path(current_user) if !@order || @order.user != current_user
+        redirect_if_not_user_order
     end
 
     def update
@@ -54,6 +54,10 @@ class OrdersController < ApplicationController
     end
 
     private
+
+    def redirect_if_not_user_order
+        redirect_to user_path(current_user) if !@order || @order.user != current_user
+    end
 
     def order_params
         params.require(:order).permit(:shipping_type, :shipping_address, :card_type, :card_number)

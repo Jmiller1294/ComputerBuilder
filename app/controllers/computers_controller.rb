@@ -13,7 +13,7 @@ class ComputersController < ApplicationController
 
     def show
         @computer = Computer.find_by(id: params[:id])
-        redirect_to computers_path if !@computer
+        redirect_if_not_user_computer
     end
 
     def new
@@ -35,7 +35,7 @@ class ComputersController < ApplicationController
 
     def edit
         @computer = Computer.find_by(id: params[:id])
-        redirect_to user_path(current_user) if !@computer || @computer.user != current_user 
+        redirect_if_not_user_computer
     end
 
     def update
@@ -49,6 +49,10 @@ class ComputersController < ApplicationController
 
 
     private
+
+    def redirect_if_not_user_computer
+        redirect_to user_path(current_user) if !@computer || @computer.user != current_user 
+    end
 
     def computer_params
         params.require(:computer).permit(:operating_system, :cpu, :ram, :gpu, :motherboard_type, :cooling_type, :case_size, :order_id)
