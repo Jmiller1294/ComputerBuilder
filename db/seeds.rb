@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-justin = User.create(username: "jayman1294", password: "password")
-milly  = User.create(username: "milly", password: "password2")
+justin = User.create(username: "jayman1294", password: "password", email: "jayman1204@gmail.com")
+milly  = User.create(username: "milly", password: "password2", email: "milly@gmail.com")
 
 order1 =  Order.create(shipping_type: "Express", shipping_address: "2100 1st Ave", card_type: "Visa", card_number: "112344567767", user: justin)
 order2 =  Order.create(shipping_type: "Standard", shipping_address: "2100 1st Ave", card_type: "Mastercard", card_number: "537584375834", user: justin)
