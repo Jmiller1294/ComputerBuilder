@@ -1,25 +1,32 @@
-<h2>All Users Orders</h2>
+<h1>All Users Orders</h1>
 
 
 <p>
-    
-        <% @orders.each do |order|%>
-        <h3>Order Number: #<%= order.id %></h3>
+    <% @orders.each do |order|%>
+    <h3>Order Number: #<%= order.id %></h3>
           
-    <ul>
-        <li>Order Username: <%= order.user.username %></li>
-        <li>Shipping Type: <%= order.shipping_type %></li>
-        <li>Shipping Address: <%= order.shipping_address %></li>
-        <li>Card Type: <%= order.card_type %></li>
-        <li>Card Number: <%= order.card_number %></li>
-        <h4>Order Items</h4>
-        <%order.computers.each do |computer|%>
-        <%= computer.cpu%>
-         <%end%>
+    <ul>    
+        <ul>
+            <li>Order Username: <%= order.user.username %></li>
+            <li>Shipping Type: <%= order.shipping_type %></li>
+            <li>Shipping Address: <%= order.shipping_address %></li>
+            <li>Card Type: <%= order.card_type %></li>
+            <li>Card Number: <%= order.card_number %></li>
+        </ul>
+            <h4>Order Items</h4>
+            <%order.computers.each do |computer|%>
+        <ul>
+            <li><b>Operating System: </b><%= computer.operating_system %></li>
+            <li><b>Cpu: </b><%= computer.cpu %></h6></li>
+            <li><b>RAM: </b><%= computer.ram %></h6></li>
+            <li><b>GPU: </b><%= computer.gpu %></h6></li>
+            <li><b>Motherboard: </b><%= computer.motherboard_type %></li>
+            <li><b>Cooling System: </b><%= computer.cooling_type %></li>
+            <li><b>Case Size: </b><%= computer.case_size %></li><br>
+            Ordered on <%= computer.created_at.to_date %>
+            <%end%>
+        </ul>
     </ul>
     <%end%>
-        
-       
-    
 </p>
 
