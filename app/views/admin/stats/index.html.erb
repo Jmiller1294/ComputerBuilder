@@ -2,19 +2,24 @@
 
 
 <p>
-    <ul>
-        <%@number = 0 %>
+    
         <% @orders.each do |order|%>
-          <p>
+        <h3>Order Number: #<%= order.id %></h3>
+          
     <ul>
         <li>Order Username: <%= order.user.username %></li>
-        <li>Order Number: #<%= order.id %></li>
         <li>Shipping Type: <%= order.shipping_type %></li>
         <li>Shipping Address: <%= order.shipping_address %></li>
         <li>Card Type: <%= order.card_type %></li>
         <li>Card Number: <%= order.card_number %></li>
+        <h4>Order Items</h4>
+        <%order.computers.each do |computer|%>
+        <%= computer.cpu%>
+         <%end%>
     </ul>
+    <%end%>
+        
+       
+    
 </p>
-        <%end%>
-    </ul>
-</p><br>
+
