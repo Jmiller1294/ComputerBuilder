@@ -12,9 +12,8 @@
 
 <p>
     <h4>Computer Builds</h4>
-    
+     <%@number = 0 %>
     <%@order.computers.each do |computer|%>
-    <%@number = 0 %>
     <ul>
         <%@number += 1 %>
             <li><h5><%= "Computer # #{@number}"%></h5>
